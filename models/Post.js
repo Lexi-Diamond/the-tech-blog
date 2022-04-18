@@ -11,7 +11,7 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -19,13 +19,18 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
     date_created: {
-        type:DataTypes.DATE
+        type:DataTypes.DATE,
+        allowNull: false,
     }
+    //check MVC unit 14 for this make a helper and check the handlebar
 },
 {
   sequelize,
@@ -36,4 +41,4 @@ Post.init(
 }
 );
 
-module.exports = Recipe;
+module.exports = Post;

@@ -15,13 +15,19 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_name: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
-    date: {
+    post_id: {
       type: DataTypes.DATE,
       allowNull: false,
+      model: 'post',
+      key: 'id'
     }
 },
 {

@@ -1,17 +1,17 @@
 const router = require("express").Router();
-const { Recipe } = require("../models");
+const { Post, User, Comment} = require("../models");
 const withAuth = require("../utils/auth");
 
 // Prevent non logged in users from viewing the homepage
-router.get("/", withAuth, async (req, res) => {
+router.get("/", (req, res) => {
   try {
-    const recipeData = await Recipe.findAll({});
+    const postData = await Post.findAll({});
 
-    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
     console.log(req.session);
 
     res.render("homepage", {
-      recipes,
+      posts,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
@@ -20,14 +20,14 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 // Recieveing singular recipe by ID
-router.get('/recipe/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const recipeData = await Recipe.findByPk(req.params.id)
+    const postData = await Post.findByPk(req.params.id)
 
-    const recipes = recipeData.get({ plain: true });
-    console.log(recipes)
-    res.render('recipe', {
-      recipes,
+    const posts = postData.get({ plain: true });
+    console.log(posts)
+    res.render('post', {
+      posts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
