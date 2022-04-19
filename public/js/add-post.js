@@ -41,7 +41,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace("/");
       } else {
-        alert("Failed to delete recipe");
+        alert("Failed to delete post");
       }
     }
   };
