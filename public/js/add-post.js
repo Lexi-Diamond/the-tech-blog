@@ -7,7 +7,7 @@ const newFormHandler = async (event) => {
     const date_Created = document.querySelector("#post-date_created").value.trim();
     
     if (title) {
-      const response = await fetch(`/api/recipes`, {
+      const response = await fetch(`/api/posts`, {
         method: "POST",
         body: JSON.stringify({
           title,
@@ -34,7 +34,7 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute("data-id")) {
       const id = event.target.getAttribute("data-id");
   
-      const response = await fetch(`/api/recipes/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: "DELETE",
       });
   
