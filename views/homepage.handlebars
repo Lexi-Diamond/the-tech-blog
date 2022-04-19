@@ -1,0 +1,29 @@
+{{#if posts}}
+  {{#each posts as |post|}}
+    <a data-id="{{id}}" class="btn delete gettingridof"><span></span><text
+      >Delete</text></a>
+    <div class="paper">
+      <a href="/recipe/{{id}}" class="container-fluid">
+      <div class="paper-content">
+        <div id="recipeCard" class="mb-3" style="max-width: 1000px;">
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="">
+                <h5 class="recipeTitle">{{title}}</h5>
+                <p class="">{{post_body}}</p>
+                <p class="">Author:{{user_id}}</p>
+                <p class="">Created on: {{date_created}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+
+  
+  {{/each}}
+{{else}}
+  <h2>You Have No Posts, Why Not Add Some?</h2>
+{{/if}}
+  

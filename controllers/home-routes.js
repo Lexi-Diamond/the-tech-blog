@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, User, Comment} = require("../models");
 const withAuth = require("../utils/auth");
 
-// Prevent non logged in users from viewing the homepage
+
 router.get('/', (req, res) => {
   Post.findAll({
     atributes: [
