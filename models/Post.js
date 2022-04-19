@@ -29,6 +29,7 @@ Post.init(
     date_created: {
         type:DataTypes.DATE,
         allowNull: false,
+        defaultValue: DataTypes.NOW
     }
     //check MVC unit 14 for this make a helper and check the handlebar
 },
