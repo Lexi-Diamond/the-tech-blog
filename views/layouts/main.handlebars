@@ -25,14 +25,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+        <a class="nav-link" aria-current="page" href="/">Homepage</a>
         {{#if logged_in}}
             <a class="nav-link" href="#">Dashboard</a>
             {{/if}}
         {{#if logged_in}}
             <a class="nav-link" id="logout">Logout </a>
           {{else}}
-            <a href="/login" id="login">Login</a>
+            <a class="nav-link" href="/login" id="login">Login</a>
           {{/if}}
       </div>
     </div>
