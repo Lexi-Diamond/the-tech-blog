@@ -46,11 +46,11 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
     const newUser = await User.create({
-      name: req.body.name,
+      username: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
@@ -61,6 +61,7 @@ router.post("/", async (req, res) => {
       res.status(200).json(newUser);
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
